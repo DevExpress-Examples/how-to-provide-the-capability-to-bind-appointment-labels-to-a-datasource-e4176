@@ -8,7 +8,7 @@
 ' </auto-generated>
 '------------------------------------------------------------------------------
 
-'#pragma warning disable 1591
+#Disable Warning 1591
 
 Namespace SchedulerMappedLabels
 
@@ -46,7 +46,7 @@ Namespace SchedulerMappedLabels
                 AddHandler Me.Relations.CollectionChanged, schemaChangedHandler1
                 Return
             End If
-            Dim strSchema As String = (DirectCast(info.GetValue("XmlSchema", GetType(String)), String))
+            Dim strSchema As String = (CStr(info.GetValue("XmlSchema", GetType(String))))
             If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
                 Dim ds As New Global.System.Data.DataSet()
                 ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
@@ -120,7 +120,7 @@ Namespace SchedulerMappedLabels
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Overrides Function Clone() As Global.System.Data.DataSet
-            Dim cln As CarsDBDataSet = (DirectCast(MyBase.Clone(), CarsDBDataSet))
+            Dim cln As CarsDBDataSet = (CType(MyBase.Clone(), CarsDBDataSet))
             cln.InitVars()
             cln.SchemaSerializationMode = Me.SchemaSerializationMode
             Return cln
@@ -239,7 +239,7 @@ Namespace SchedulerMappedLabels
                     dsSchema.Write(s1)
                     Dim schemas As System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator()
                     Do While schemas.MoveNext()
-                        schema = (DirectCast(schemas.Current, Global.System.Xml.Schema.XmlSchema))
+                        schema = (CType(schemas.Current, Global.System.Xml.Schema.XmlSchema))
                         s2.SetLength(0)
                         schema.Write(s2)
                         If (s1.Length = s2.Length) Then
@@ -373,7 +373,7 @@ Namespace SchedulerMappedLabels
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Default Public ReadOnly Property Item(ByVal index As Integer) As CarSchedulingRow
                 Get
-                    Return (DirectCast(Me.Rows(index), CarSchedulingRow))
+                    Return (CType(Me.Rows(index), CarSchedulingRow))
                 End Get
             End Property
 
@@ -396,7 +396,7 @@ Namespace SchedulerMappedLabels
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Function AddCarSchedulingRow(ByVal Subject As String, ByVal Description As String, ByVal Label As Integer, ByVal StartTime As Date, ByVal EndTime As Date) As CarSchedulingRow
-                Dim rowCarSchedulingRow As CarSchedulingRow = (DirectCast(Me.NewRow(), CarSchedulingRow))
+                Dim rowCarSchedulingRow As CarSchedulingRow = (CType(Me.NewRow(), CarSchedulingRow))
                 Dim columnValuesArray() As Object = { Nothing, Subject, Description, Label, StartTime, EndTime}
                 rowCarSchedulingRow.ItemArray = columnValuesArray
                 Me.Rows.Add(rowCarSchedulingRow)
@@ -405,12 +405,12 @@ Namespace SchedulerMappedLabels
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Function FindByID(ByVal ID As Integer) As CarSchedulingRow
-                Return (DirectCast(Me.Rows.Find(New Object() { ID}), CarSchedulingRow))
+                Return (CType(Me.Rows.Find(New Object() { ID}), CarSchedulingRow))
             End Function
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Overrides Function Clone() As Global.System.Data.DataTable
-                Dim cln As CarSchedulingDataTable = (DirectCast(MyBase.Clone(), CarSchedulingDataTable))
+                Dim cln As CarSchedulingDataTable = (CType(MyBase.Clone(), CarSchedulingDataTable))
                 cln.InitVars()
                 Return cln
             End Function
@@ -454,7 +454,7 @@ Namespace SchedulerMappedLabels
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Function NewCarSchedulingRow() As CarSchedulingRow
-                Return (DirectCast(Me.NewRow(), CarSchedulingRow))
+                Return (CType(Me.NewRow(), CarSchedulingRow))
             End Function
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
@@ -470,25 +470,25 @@ Namespace SchedulerMappedLabels
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowChanged(e)
-                RaiseEvent CarSchedulingRowChanged(Me, New CarSchedulingRowChangeEvent((DirectCast(e.Row, CarSchedulingRow)), e.Action))
+                RaiseEvent CarSchedulingRowChanged(Me, New CarSchedulingRowChangeEvent((CType(e.Row, CarSchedulingRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowChanging(e)
-                RaiseEvent CarSchedulingRowChanging(Me, New CarSchedulingRowChangeEvent((DirectCast(e.Row, CarSchedulingRow)), e.Action))
+                RaiseEvent CarSchedulingRowChanging(Me, New CarSchedulingRowChangeEvent((CType(e.Row, CarSchedulingRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowDeleted(e)
-                RaiseEvent CarSchedulingRowDeleted(Me, New CarSchedulingRowChangeEvent((DirectCast(e.Row, CarSchedulingRow)), e.Action))
+                RaiseEvent CarSchedulingRowDeleted(Me, New CarSchedulingRowChangeEvent((CType(e.Row, CarSchedulingRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowDeleting(e)
-                RaiseEvent CarSchedulingRowDeleting(Me, New CarSchedulingRowChangeEvent((DirectCast(e.Row, CarSchedulingRow)), e.Action))
+                RaiseEvent CarSchedulingRowDeleting(Me, New CarSchedulingRowChangeEvent((CType(e.Row, CarSchedulingRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
@@ -530,7 +530,7 @@ Namespace SchedulerMappedLabels
                         dsSchema.Write(s1)
                         Dim schemas As System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator()
                         Do While schemas.MoveNext()
-                            schema = (DirectCast(schemas.Current, Global.System.Xml.Schema.XmlSchema))
+                            schema = (CType(schemas.Current, Global.System.Xml.Schema.XmlSchema))
                             s2.SetLength(0)
                             schema.Write(s2)
                             If (s1.Length = s2.Length) Then
@@ -632,7 +632,7 @@ Namespace SchedulerMappedLabels
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Default Public ReadOnly Property Item(ByVal index As Integer) As LabelsRow
                 Get
-                    Return (DirectCast(Me.Rows(index), LabelsRow))
+                    Return (CType(Me.Rows(index), LabelsRow))
                 End Get
             End Property
 
@@ -655,7 +655,7 @@ Namespace SchedulerMappedLabels
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Function AddLabelsRow(ByVal ID As Integer, ByVal Color As Integer, ByVal DisplayName As String) As LabelsRow
-                Dim rowLabelsRow As LabelsRow = (DirectCast(Me.NewRow(), LabelsRow))
+                Dim rowLabelsRow As LabelsRow = (CType(Me.NewRow(), LabelsRow))
                 Dim columnValuesArray() As Object = { ID, Color, DisplayName}
                 rowLabelsRow.ItemArray = columnValuesArray
                 Me.Rows.Add(rowLabelsRow)
@@ -664,12 +664,12 @@ Namespace SchedulerMappedLabels
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Function FindByID(ByVal ID As Integer) As LabelsRow
-                Return (DirectCast(Me.Rows.Find(New Object() { ID}), LabelsRow))
+                Return (CType(Me.Rows.Find(New Object() { ID}), LabelsRow))
             End Function
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Overrides Function Clone() As Global.System.Data.DataTable
-                Dim cln As LabelsDataTable = (DirectCast(MyBase.Clone(), LabelsDataTable))
+                Dim cln As LabelsDataTable = (CType(MyBase.Clone(), LabelsDataTable))
                 cln.InitVars()
                 Return cln
             End Function
@@ -702,7 +702,7 @@ Namespace SchedulerMappedLabels
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Function NewLabelsRow() As LabelsRow
-                Return (DirectCast(Me.NewRow(), LabelsRow))
+                Return (CType(Me.NewRow(), LabelsRow))
             End Function
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
@@ -718,25 +718,25 @@ Namespace SchedulerMappedLabels
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowChanged(e)
-                RaiseEvent LabelsRowChanged(Me, New LabelsRowChangeEvent((DirectCast(e.Row, LabelsRow)), e.Action))
+                RaiseEvent LabelsRowChanged(Me, New LabelsRowChangeEvent((CType(e.Row, LabelsRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowChanging(e)
-                RaiseEvent LabelsRowChanging(Me, New LabelsRowChangeEvent((DirectCast(e.Row, LabelsRow)), e.Action))
+                RaiseEvent LabelsRowChanging(Me, New LabelsRowChangeEvent((CType(e.Row, LabelsRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowDeleted(e)
-                RaiseEvent LabelsRowDeleted(Me, New LabelsRowChangeEvent((DirectCast(e.Row, LabelsRow)), e.Action))
+                RaiseEvent LabelsRowDeleted(Me, New LabelsRowChangeEvent((CType(e.Row, LabelsRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowDeleting(e)
-                RaiseEvent LabelsRowDeleting(Me, New LabelsRowChangeEvent((DirectCast(e.Row, LabelsRow)), e.Action))
+                RaiseEvent LabelsRowDeleting(Me, New LabelsRowChangeEvent((CType(e.Row, LabelsRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
@@ -778,7 +778,7 @@ Namespace SchedulerMappedLabels
                         dsSchema.Write(s1)
                         Dim schemas As System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator()
                         Do While schemas.MoveNext()
-                            schema = (DirectCast(schemas.Current, Global.System.Xml.Schema.XmlSchema))
+                            schema = (CType(schemas.Current, Global.System.Xml.Schema.XmlSchema))
                             s2.SetLength(0)
                             schema.Write(s2)
                             If (s1.Length = s2.Length) Then
@@ -823,7 +823,7 @@ Namespace SchedulerMappedLabels
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Property ID() As Integer
                 Get
-                    Return (DirectCast(Me(Me.tableCarScheduling.IDColumn), Integer))
+                    Return (CInt((Me(Me.tableCarScheduling.IDColumn))))
                 End Get
                 Set(ByVal value As Integer)
                     Me(Me.tableCarScheduling.IDColumn) = value
@@ -834,7 +834,7 @@ Namespace SchedulerMappedLabels
             Public Property Subject() As String
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableCarScheduling.SubjectColumn), String))
+                        Return (CStr(Me(Me.tableCarScheduling.SubjectColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'Subject' in table 'CarScheduling' is DBNull.", e)
                     End Try
@@ -848,7 +848,7 @@ Namespace SchedulerMappedLabels
             Public Property Description() As String
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableCarScheduling.DescriptionColumn), String))
+                        Return (CStr(Me(Me.tableCarScheduling.DescriptionColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'Description' in table 'CarScheduling' is DBNull.", e)
                     End Try
@@ -862,7 +862,7 @@ Namespace SchedulerMappedLabels
             Public Property Label() As Integer
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableCarScheduling.LabelColumn), Integer))
+                        Return (CInt((Me(Me.tableCarScheduling.LabelColumn))))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'Label' in table 'CarScheduling' is DBNull.", e)
                     End Try
@@ -876,7 +876,7 @@ Namespace SchedulerMappedLabels
             Public Property StartTime() As Date
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableCarScheduling.StartTimeColumn), Global.System.DateTime))
+                        Return (CDate(Me(Me.tableCarScheduling.StartTimeColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'StartTime' in table 'CarScheduling' is DBNull.", e)
                     End Try
@@ -890,7 +890,7 @@ Namespace SchedulerMappedLabels
             Public Property EndTime() As Date
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableCarScheduling.EndTimeColumn), Global.System.DateTime))
+                        Return (CDate(Me(Me.tableCarScheduling.EndTimeColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'EndTime' in table 'CarScheduling' is DBNull.", e)
                     End Try
@@ -968,7 +968,7 @@ Namespace SchedulerMappedLabels
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Property ID() As Integer
                 Get
-                    Return (DirectCast(Me(Me.tableLabels.IDColumn), Integer))
+                    Return (CInt((Me(Me.tableLabels.IDColumn))))
                 End Get
                 Set(ByVal value As Integer)
                     Me(Me.tableLabels.IDColumn) = value
@@ -979,7 +979,7 @@ Namespace SchedulerMappedLabels
             Public Property Color() As Integer
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableLabels.ColorColumn), Integer))
+                        Return (CInt((Me(Me.tableLabels.ColorColumn))))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'Color' in table 'Labels' is DBNull.", e)
                     End Try
@@ -993,7 +993,7 @@ Namespace SchedulerMappedLabels
             Public Property DisplayName() As String
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableLabels.DisplayNameColumn), String))
+                        Return (CStr(Me(Me.tableLabels.DisplayNameColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'DisplayName' in table 'Labels' is DBNull.", e)
                     End Try
@@ -1309,31 +1309,31 @@ Namespace SchedulerMappedLabels.CarsDBDataSetTableAdapters
         Public Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_Subject As String, ByVal Original_Label? As Integer, ByVal Original_StartTime? As Global.System.DateTime, ByVal Original_EndTime? As Global.System.DateTime) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = (CInt(Original_ID))
             If (Original_Subject Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = (DirectCast(1, Object))
+                Me.Adapter.DeleteCommand.Parameters(1).Value = (CObj(1))
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = (DirectCast(0, Object))
+                Me.Adapter.DeleteCommand.Parameters(1).Value = (CObj(0))
                 Me.Adapter.DeleteCommand.Parameters(2).Value = (CStr(Original_Subject))
             End If
             If (Original_Label.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = (DirectCast(0, Object))
+                Me.Adapter.DeleteCommand.Parameters(3).Value = (CObj(0))
                 Me.Adapter.DeleteCommand.Parameters(4).Value = (CInt(Original_Label.Value))
             Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = (DirectCast(1, Object))
+                Me.Adapter.DeleteCommand.Parameters(3).Value = (CObj(1))
                 Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
             If (Original_StartTime.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = (DirectCast(0, Object))
+                Me.Adapter.DeleteCommand.Parameters(5).Value = (CObj(0))
                 Me.Adapter.DeleteCommand.Parameters(6).Value = (CDate(Original_StartTime.Value))
             Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = (DirectCast(1, Object))
+                Me.Adapter.DeleteCommand.Parameters(5).Value = (CObj(1))
                 Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
             End If
             If (Original_EndTime.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(7).Value = (DirectCast(0, Object))
+                Me.Adapter.DeleteCommand.Parameters(7).Value = (CObj(0))
                 Me.Adapter.DeleteCommand.Parameters(8).Value = (CDate(Original_EndTime.Value))
             Else
-                Me.Adapter.DeleteCommand.Parameters(7).Value = (DirectCast(1, Object))
+                Me.Adapter.DeleteCommand.Parameters(7).Value = (CObj(1))
                 Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
@@ -1420,31 +1420,31 @@ Namespace SchedulerMappedLabels.CarsDBDataSetTableAdapters
             End If
             Me.Adapter.UpdateCommand.Parameters(5).Value = (CInt(Original_ID))
             If (Original_Subject Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = (DirectCast(1, Object))
+                Me.Adapter.UpdateCommand.Parameters(6).Value = (CObj(1))
                 Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = (DirectCast(0, Object))
+                Me.Adapter.UpdateCommand.Parameters(6).Value = (CObj(0))
                 Me.Adapter.UpdateCommand.Parameters(7).Value = (CStr(Original_Subject))
             End If
             If (Original_Label.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = (DirectCast(0, Object))
+                Me.Adapter.UpdateCommand.Parameters(8).Value = (CObj(0))
                 Me.Adapter.UpdateCommand.Parameters(9).Value = (CInt(Original_Label.Value))
             Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = (DirectCast(1, Object))
+                Me.Adapter.UpdateCommand.Parameters(8).Value = (CObj(1))
                 Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
             If (Original_StartTime.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = (DirectCast(0, Object))
+                Me.Adapter.UpdateCommand.Parameters(10).Value = (CObj(0))
                 Me.Adapter.UpdateCommand.Parameters(11).Value = (CDate(Original_StartTime.Value))
             Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = (DirectCast(1, Object))
+                Me.Adapter.UpdateCommand.Parameters(10).Value = (CObj(1))
                 Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
             End If
             If (Original_EndTime.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = (DirectCast(0, Object))
+                Me.Adapter.UpdateCommand.Parameters(12).Value = (CObj(0))
                 Me.Adapter.UpdateCommand.Parameters(13).Value = (CDate(Original_EndTime.Value))
             Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = (DirectCast(1, Object))
+                Me.Adapter.UpdateCommand.Parameters(12).Value = (CObj(1))
                 Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
@@ -1668,17 +1668,17 @@ Namespace SchedulerMappedLabels.CarsDBDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
             If (Original_Color.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = (DirectCast(0, Object))
+                Me.Adapter.DeleteCommand.Parameters(1).Value = (CObj(0))
                 Me.Adapter.DeleteCommand.Parameters(2).Value = (CInt(Original_Color.Value))
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = (DirectCast(1, Object))
+                Me.Adapter.DeleteCommand.Parameters(1).Value = (CObj(1))
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
             If (Original_DisplayName Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = (DirectCast(1, Object))
+                Me.Adapter.DeleteCommand.Parameters(3).Value = (CObj(1))
                 Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = (DirectCast(0, Object))
+                Me.Adapter.DeleteCommand.Parameters(3).Value = (CObj(0))
                 Me.Adapter.DeleteCommand.Parameters(4).Value = (CStr(Original_DisplayName))
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
@@ -1749,17 +1749,17 @@ Namespace SchedulerMappedLabels.CarsDBDataSetTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
             If (Original_Color.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = (DirectCast(0, Object))
+                Me.Adapter.UpdateCommand.Parameters(4).Value = (CObj(0))
                 Me.Adapter.UpdateCommand.Parameters(5).Value = (CInt(Original_Color.Value))
             Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = (DirectCast(1, Object))
+                Me.Adapter.UpdateCommand.Parameters(4).Value = (CObj(1))
                 Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
             End If
             If (Original_DisplayName Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = (DirectCast(1, Object))
+                Me.Adapter.UpdateCommand.Parameters(6).Value = (CObj(1))
                 Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = (DirectCast(0, Object))
+                Me.Adapter.UpdateCommand.Parameters(6).Value = (CObj(0))
                 Me.Adapter.UpdateCommand.Parameters(7).Value = (CStr(Original_DisplayName))
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
@@ -2014,8 +2014,8 @@ Namespace SchedulerMappedLabels.CarsDBDataSetTableAdapters
                 '
                 If (Me._carSchedulingTableAdapter IsNot Nothing) Then
                     revertConnections.Add(Me._carSchedulingTableAdapter, Me._carSchedulingTableAdapter.Connection)
-                    Me._carSchedulingTableAdapter.Connection = (DirectCast(workConnection, Global.System.Data.OleDb.OleDbConnection))
-                    Me._carSchedulingTableAdapter.Transaction = (DirectCast(workTransaction, Global.System.Data.OleDb.OleDbTransaction))
+                    Me._carSchedulingTableAdapter.Connection = (CType(workConnection, Global.System.Data.OleDb.OleDbConnection))
+                    Me._carSchedulingTableAdapter.Transaction = (CType(workTransaction, Global.System.Data.OleDb.OleDbTransaction))
                     If Me._carSchedulingTableAdapter.Adapter.AcceptChangesDuringUpdate Then
                         Me._carSchedulingTableAdapter.Adapter.AcceptChangesDuringUpdate = False
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._carSchedulingTableAdapter.Adapter)
@@ -2023,8 +2023,8 @@ Namespace SchedulerMappedLabels.CarsDBDataSetTableAdapters
                 End If
                 If (Me._labelsTableAdapter IsNot Nothing) Then
                     revertConnections.Add(Me._labelsTableAdapter, Me._labelsTableAdapter.Connection)
-                    Me._labelsTableAdapter.Connection = (DirectCast(workConnection, Global.System.Data.OleDb.OleDbConnection))
-                    Me._labelsTableAdapter.Transaction = (DirectCast(workTransaction, Global.System.Data.OleDb.OleDbTransaction))
+                    Me._labelsTableAdapter.Connection = (CType(workConnection, Global.System.Data.OleDb.OleDbConnection))
+                    Me._labelsTableAdapter.Transaction = (CType(workTransaction, Global.System.Data.OleDb.OleDbTransaction))
                     If Me._labelsTableAdapter.Adapter.AcceptChangesDuringUpdate Then
                         Me._labelsTableAdapter.Adapter.AcceptChangesDuringUpdate = False
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._labelsTableAdapter.Adapter)
@@ -2091,11 +2091,11 @@ Namespace SchedulerMappedLabels.CarsDBDataSetTableAdapters
                     workConnection.Close()
                 End If
                 If (Me._carSchedulingTableAdapter IsNot Nothing) Then
-                    Me._carSchedulingTableAdapter.Connection = (DirectCast(revertConnections(Me._carSchedulingTableAdapter), Global.System.Data.OleDb.OleDbConnection))
+                    Me._carSchedulingTableAdapter.Connection = (CType(revertConnections(Me._carSchedulingTableAdapter), Global.System.Data.OleDb.OleDbConnection))
                     Me._carSchedulingTableAdapter.Transaction = Nothing
                 End If
                 If (Me._labelsTableAdapter IsNot Nothing) Then
-                    Me._labelsTableAdapter.Connection = (DirectCast(revertConnections(Me._labelsTableAdapter), Global.System.Data.OleDb.OleDbConnection))
+                    Me._labelsTableAdapter.Connection = (CType(revertConnections(Me._labelsTableAdapter), Global.System.Data.OleDb.OleDbConnection))
                     Me._labelsTableAdapter.Transaction = Nothing
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
@@ -2197,7 +2197,7 @@ Namespace SchedulerMappedLabels.CarsDBDataSetTableAdapters
             End Function
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-            Public Function Compare(ByVal row1 As Global.System.Data.DataRow, ByVal row2 As Global.System.Data.DataRow) As Integer Implements IComparer(Of Global.System.Data.DataRow).Compare
+            Public Function Compare(ByVal row1 As Global.System.Data.DataRow, ByVal row2 As Global.System.Data.DataRow) As Integer Implements System.Collections.Generic.IComparer(Of Global.System.Data.DataRow).Compare
                 If Object.ReferenceEquals(row1, row2) Then
                     Return 0
                 End If
@@ -2229,4 +2229,4 @@ Namespace SchedulerMappedLabels.CarsDBDataSetTableAdapters
     End Class
 End Namespace
 
-'#pragma warning restore 1591
+#Enable Warning 1591
