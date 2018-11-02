@@ -27,7 +27,7 @@
             this.schedulerControl1 = new SchedulerMappedLabels.CustomSchedulerControl();
             this.labelsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.carsDBDataSet = new SchedulerMappedLabels.CarsDBDataSet();
-            this.schedulerStorage1 = new DevExpress.XtraScheduler.SchedulerStorage(this.components);
+            this.schedulerStorage1 = new DevExpress.XtraScheduler.SchedulerDataStorage(this.components);
             this.carSchedulingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.carSchedulingTableAdapter = new SchedulerMappedLabels.CarsDBDataSetTableAdapters.CarSchedulingTableAdapter();
             this.labelsTableAdapter = new SchedulerMappedLabels.CarsDBDataSetTableAdapters.LabelsTableAdapter();
@@ -47,7 +47,7 @@
             this.schedulerControl1.Name = "schedulerControl1";
             this.schedulerControl1.Size = new System.Drawing.Size(888, 436);
             this.schedulerControl1.Start = new System.DateTime(2008, 9, 4, 0, 0, 0, 0);
-            this.schedulerControl1.Storage = this.schedulerStorage1;
+            this.schedulerControl1.DataStorage = this.schedulerStorage1;
             this.schedulerControl1.TabIndex = 0;
             this.schedulerControl1.Text = "schedulerControl1";
             this.schedulerControl1.Views.DayView.AllDayAreaScrollBarVisible = false;
@@ -67,7 +67,6 @@
             // 
             // schedulerStorage1
             // 
-            this.schedulerStorage1.Appointments.CommitIdToDataSource = false;
             this.schedulerStorage1.Appointments.DataSource = this.carSchedulingBindingSource;
             this.schedulerStorage1.Appointments.Mappings.AppointmentId = "ID";
             this.schedulerStorage1.Appointments.Mappings.Description = "Description";
@@ -110,7 +109,7 @@
         #endregion
 
         private CustomSchedulerControl schedulerControl1;
-        private DevExpress.XtraScheduler.SchedulerStorage schedulerStorage1;
+        private DevExpress.XtraScheduler.SchedulerDataStorage schedulerStorage1;
         private CarsDBDataSet carsDBDataSet;
         private System.Windows.Forms.BindingSource carSchedulingBindingSource;
         private CarsDBDataSetTableAdapters.CarSchedulingTableAdapter carSchedulingTableAdapter;
