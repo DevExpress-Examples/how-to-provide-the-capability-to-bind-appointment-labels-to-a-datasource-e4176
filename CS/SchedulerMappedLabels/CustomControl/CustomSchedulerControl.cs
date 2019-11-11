@@ -44,15 +44,17 @@ namespace SchedulerMappedLabels {
 
         public void PopulateLabelsStorage() {
             DataBindingController labelsController = new DataBindingController(labelsDataSource, string.Empty);
-            if (Storage == null)
+            if (DataStorage == null)
                 return;
 
-            Storage.Appointments.Labels.Clear();
+            DataStorage.Appointments.Labels.Clear();
             for (int i = 0; i < labelsController.ItemsCount; i++) {
                 object labelId = labelsController.GetRowValue(LabelIdMappedName, i);
                 string labelDisplayName = labelsController.GetRowValue(LabelDisplayNameMappedName, i).ToString();
                 Color labelColor = Color.FromArgb(Convert.ToInt32(labelsController.GetRowValue(LabelColorMappedName, i)));
-                Storage.Appointments.Labels.Add(labelId, labelDisplayName, labelDisplayName, labelColor);
+                var newLabel = DataStorage.Appointments.Labels.CreateNewLabel(labelId, labelDisplayName);
+                newLabel.SetColor(labelColor);
+                DataStorage.Appointments.Labels.Add(newLabel);
             }
         }
     }

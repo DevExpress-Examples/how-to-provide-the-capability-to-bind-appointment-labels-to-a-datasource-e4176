@@ -15,8 +15,8 @@ namespace SchedulerMappedLabels {
 
             schedulerControl1.PopulateLabelsStorage();
 
-            if (schedulerControl1.Storage.Appointments.Count > 0) {
-                DateTime start = schedulerControl1.Storage.Appointments[0].Start;
+            if (schedulerControl1.DataStorage.Appointments.Count > 0) {
+                DateTime start = schedulerControl1.DataStorage.Appointments[0].Start;
                 schedulerControl1.Start = start.Date;
                 schedulerControl1.DayView.TopRowTime = start.TimeOfDay;
             }
