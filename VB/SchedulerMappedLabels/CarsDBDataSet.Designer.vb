@@ -8,7 +8,7 @@
 ' </auto-generated>
 '------------------------------------------------------------------------------
 
-#Disable Warning 1591
+
 
 Namespace SchedulerMappedLabels
 
@@ -2228,5 +2228,3 @@ Namespace SchedulerMappedLabels.CarsDBDataSetTableAdapters
         End Class
     End Class
 End Namespace
-
-#Enable Warning 1591
