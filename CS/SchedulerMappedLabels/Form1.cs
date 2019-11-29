@@ -13,7 +13,6 @@ namespace SchedulerMappedLabels {
             // TODO: This line of code loads data into the 'carsDBDataSet.Labels' table. You can move, or remove it, as needed.
             this.labelsTableAdapter.Fill(this.carsDBDataSet.Labels);
 
-            schedulerControl1.PopulateLabelsStorage();
 
             if (schedulerControl1.DataStorage.Appointments.Count > 0) {
                 DateTime start = schedulerControl1.DataStorage.Appointments[0].Start;
