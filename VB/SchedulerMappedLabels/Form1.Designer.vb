@@ -1,5 +1,7 @@
-﻿Namespace SchedulerMappedLabels
-    Partial Public Class Form1
+Namespace SchedulerMappedLabels
+
+    Partial Class Form1
+
         ''' <summary>
         ''' Required designer variable.
         ''' </summary>
@@ -10,14 +12,14 @@
         ''' </summary>
         ''' <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         Protected Overrides Sub Dispose(ByVal disposing As Boolean)
-            If disposing AndAlso (components IsNot Nothing) Then
-                components.Dispose()
+            If disposing AndAlso (Me.components IsNot Nothing) Then
+                Me.components.Dispose()
             End If
+
             MyBase.Dispose(disposing)
         End Sub
 
-        #Region "Windows Form Designer generated code"
-
+#Region "Windows Form Designer generated code"
         ''' <summary>
         ''' Required method for Designer support - do not modify
         ''' the contents of this method with the code editor.
@@ -26,16 +28,16 @@
             Me.components = New System.ComponentModel.Container()
             Me.schedulerControl1 = New SchedulerMappedLabels.CustomSchedulerControl()
             Me.labelsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-            Me.carsDBDataSet_Renamed = New SchedulerMappedLabels.CarsDBDataSet()
+            Me.carsDBDataSet = New SchedulerMappedLabels.CarsDBDataSet()
             Me.schedulerStorage1 = New DevExpress.XtraScheduler.SchedulerStorage(Me.components)
             Me.carSchedulingBindingSource = New System.Windows.Forms.BindingSource(Me.components)
             Me.carSchedulingTableAdapter = New SchedulerMappedLabels.CarsDBDataSetTableAdapters.CarSchedulingTableAdapter()
             Me.labelsTableAdapter = New SchedulerMappedLabels.CarsDBDataSetTableAdapters.LabelsTableAdapter()
-            DirectCast(Me.schedulerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-            DirectCast(Me.labelsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-            DirectCast(Me.carsDBDataSet_Renamed, System.ComponentModel.ISupportInitialize).BeginInit()
-            DirectCast(Me.schedulerStorage1, System.ComponentModel.ISupportInitialize).BeginInit()
-            DirectCast(Me.carSchedulingBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.schedulerControl1), System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.labelsBindingSource), System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.carsDBDataSet), System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.schedulerStorage1), System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.carSchedulingBindingSource), System.ComponentModel.ISupportInitialize).BeginInit()
             Me.SuspendLayout()
             ' 
             ' schedulerControl1
@@ -46,7 +48,7 @@
             Me.schedulerControl1.Location = New System.Drawing.Point(0, 0)
             Me.schedulerControl1.Name = "schedulerControl1"
             Me.schedulerControl1.Size = New System.Drawing.Size(888, 436)
-            Me.schedulerControl1.Start = New Date(2008, 9, 4, 0, 0, 0, 0)
+            Me.schedulerControl1.Start = New System.DateTime(2008, 9, 4, 0, 0, 0, 0)
             Me.schedulerControl1.Storage = Me.schedulerStorage1
             Me.schedulerControl1.TabIndex = 0
             Me.schedulerControl1.Text = "schedulerControl1"
@@ -58,12 +60,12 @@
             ' labelsBindingSource
             ' 
             Me.labelsBindingSource.DataMember = "Labels"
-            Me.labelsBindingSource.DataSource = Me.carsDBDataSet_Renamed
+            Me.labelsBindingSource.DataSource = Me.carsDBDataSet
             ' 
             ' carsDBDataSet
             ' 
-            Me.carsDBDataSet_Renamed.DataSetName = "CarsDBDataSet"
-            Me.carsDBDataSet_Renamed.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+            Me.carsDBDataSet.DataSetName = "CarsDBDataSet"
+            Me.carsDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
             ' 
             ' schedulerStorage1
             ' 
@@ -71,7 +73,7 @@
             Me.schedulerStorage1.Appointments.DataSource = Me.carSchedulingBindingSource
             Me.schedulerStorage1.Appointments.Mappings.AppointmentId = "ID"
             Me.schedulerStorage1.Appointments.Mappings.Description = "Description"
-            Me.schedulerStorage1.Appointments.Mappings.End = "EndTime"
+            Me.schedulerStorage1.Appointments.Mappings.[End] = "EndTime"
             Me.schedulerStorage1.Appointments.Mappings.Label = "Label"
             Me.schedulerStorage1.Appointments.Mappings.Start = "StartTime"
             Me.schedulerStorage1.Appointments.Mappings.Subject = "Subject"
@@ -79,7 +81,7 @@
             ' carSchedulingBindingSource
             ' 
             Me.carSchedulingBindingSource.DataMember = "CarScheduling"
-            Me.carSchedulingBindingSource.DataSource = Me.carsDBDataSet_Renamed
+            Me.carSchedulingBindingSource.DataSource = Me.carsDBDataSet
             ' 
             ' carSchedulingTableAdapter
             ' 
@@ -97,25 +99,28 @@
             Me.Controls.Add(Me.schedulerControl1)
             Me.Name = "Form1"
             Me.Text = "Form1"
-            DirectCast(Me.schedulerControl1, System.ComponentModel.ISupportInitialize).EndInit()
-            DirectCast(Me.labelsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-            DirectCast(Me.carsDBDataSet_Renamed, System.ComponentModel.ISupportInitialize).EndInit()
-            DirectCast(Me.schedulerStorage1, System.ComponentModel.ISupportInitialize).EndInit()
-            DirectCast(Me.carSchedulingBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+            AddHandler Me.Load, New System.EventHandler(AddressOf Me.Form1_Load)
+            CType((Me.schedulerControl1), System.ComponentModel.ISupportInitialize).EndInit()
+            CType((Me.labelsBindingSource), System.ComponentModel.ISupportInitialize).EndInit()
+            CType((Me.carsDBDataSet), System.ComponentModel.ISupportInitialize).EndInit()
+            CType((Me.schedulerStorage1), System.ComponentModel.ISupportInitialize).EndInit()
+            CType((Me.carSchedulingBindingSource), System.ComponentModel.ISupportInitialize).EndInit()
             Me.ResumeLayout(False)
-
         End Sub
 
-        #End Region
+#End Region
+        Private schedulerControl1 As SchedulerMappedLabels.CustomSchedulerControl
 
-        Private schedulerControl1 As CustomSchedulerControl
         Private schedulerStorage1 As DevExpress.XtraScheduler.SchedulerStorage
 
-        Private carsDBDataSet_Renamed As CarsDBDataSet
+        Private carsDBDataSet As SchedulerMappedLabels.CarsDBDataSet
+
         Private carSchedulingBindingSource As System.Windows.Forms.BindingSource
-        Private carSchedulingTableAdapter As CarsDBDataSetTableAdapters.CarSchedulingTableAdapter
+
+        Private carSchedulingTableAdapter As SchedulerMappedLabels.CarsDBDataSetTableAdapters.CarSchedulingTableAdapter
+
         Private labelsBindingSource As System.Windows.Forms.BindingSource
-        Private labelsTableAdapter As CarsDBDataSetTableAdapters.LabelsTableAdapter
+
+        Private labelsTableAdapter As SchedulerMappedLabels.CarsDBDataSetTableAdapters.LabelsTableAdapter
     End Class
 End Namespace
-
